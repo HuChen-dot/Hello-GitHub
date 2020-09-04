@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--引用父模块的坐标构建-->
+    <parent>
+        <groupId>rewin.com</groupId>
+        <artifactId>yimaiwang</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <!--本模块的坐标构建-->
+    <groupId>com.example</groupId>
+    <artifactId>base</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>base</name>
+    <!--本模块的打包方式-->
+    <packaging>jar</packaging>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!--因为这些依赖在父模块中存在，所以直接继承了过来，就不需要，在子模块中再次引用-->
+        <!--   <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter</artifactId>
+           </dependency>-->
+
+        <!-- <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-test</artifactId>
+             <scope>test</scope>
+             <exclusions>
+                 <exclusion>
+                     <groupId>org.junit.vintage</groupId>
+                     <artifactId>junit-vintage-engine</artifactId>
+                 </exclusion>
+             </exclusions>
+         </dependency>-->
+
+        <!-- MySQL数据库依赖 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!--mybatis 依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <!--mybatis分页插件依赖-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <!--因为本模块不是web项目，不需要入口类，所以就不需要这个插件-->
+        <!--        <plugins>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
+    </build>
+
+</project>

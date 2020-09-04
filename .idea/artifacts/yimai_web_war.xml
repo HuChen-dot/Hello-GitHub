@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="yimai-web:war">
+    <output-path>$PROJECT_DIR$/yimai-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>yimai-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="yimai-web-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="yimai-web:war exploded" />
+    </root>
+  </artifact>
+</component>

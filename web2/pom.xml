@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--引用父类的zuo坐标-->
+    <parent>
+        <groupId>rewin.com</groupId>
+        <artifactId>yimaiwang</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <!--本模块的坐标构建-->
+    <groupId>com.example</groupId>
+    <artifactId>web2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!--本模块为web模块，所以打包方式为war-->
+    <packaging>war</packaging>
+    <!--  本模块的名字-->
+    <name>web2</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <!--引用同一个父模块下的另一个子模块-->
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
+        <dependency>
+
+            <groupId>org.springframework.boot</groupId>
+
+            <artifactId>spring-boot-starter-web</artifactId>
+
+        </dependency>
+
+
+        <!--        邮件依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+
+
+<!--        权限框架-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>5.0.1.RELEASE</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <!-- 因为本模块是web模块，所以有启动入口类，搜易需要这个插件-->
+        <!--只要有入口类，打包时就需要这个插件-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

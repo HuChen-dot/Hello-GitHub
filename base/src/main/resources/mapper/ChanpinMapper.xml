@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.base.Dao.mapper.ChanpinMapper">
+
+    <!-- 根据id查询；返回单个对象 -->
+    <select id="getChanpinById" resultType="com.example.base.Dao.pojo.Chanpin">
+        select
+        id as id,
+        name as name,
+        gongyinid as gongyinid,
+        jiage as jiage,
+        miaoshu as miaoshu
+        from chanpin
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <!-- 根据条件查询；返回多个对象-->
+    <select id="getChanpinListByMap" resultType="com.example.base.Dao.pojo.Chanpin" parameterType="java.util.Map">
+        select
+        id as id,
+        name as name,
+        gongyinid as gongyinid,
+        jiage as jiage,
+        miaoshu as miaoshu
+        from chanpin
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="name != null">
+                and name=#{name}
+            </if>
+            <if test="gongyinid != null">
+                and gongyinid=#{gongyinid}
+            </if>
+            <if test="jiage != null">
+                and jiage=#{jiage}
+            </if>
+        </trim>
+        order by id desc
+    </select>
+
+
+    <!--  查询数量：根据传入的条件查询目标数量；返回查询的数量 -->
+    <select id="getChanpinCountByMap" resultType="integer" parameterType="java.util.Map">
+        select count(*) from chanpin
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="name != null">
+                and name=#{name}
+            </if>
+            <if test="gongyinid != null">
+                and gongyinid=#{gongyinid}
+            </if>
+            <if test="jiage != null">
+                and jiage=#{jiage}
+            </if>
+            <if test="miaoshu != null">
+                and miaoshu=#{miaoshu}
+            </if>
+        </trim>
+    </select>
+
+    <!--  添加：根据传入的参数添加信息；返回影响的行数 -->
+    <insert id="insertChanpin" parameterType="com.example.base.Dao.pojo.Chanpin"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into chanpin(
+                        name,                     
+                        gongyinid,                     
+                        jiage,                     
+                        miaoshu)
+        values(
+                        #{name},
+                        #{gongyinid},
+                        #{jiage},
+                       #{miaoshu})
+    </insert>
+
+
+    <!--  根据id修改：根据传入的参数修改对应的数据库类；返回影响的行数-->
+    <update id="updateChanpin" parameterType="com.example.base.Dao.pojo.Chanpin">
+        update chanpin
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="gongyinid != null">
+                gongyinid=#{gongyinid},
+            </if>
+            <if test="jiage != null">
+                jiage=#{jiage},
+            </if>
+            <if test="miaoshu != null">
+                miaoshu=#{miaoshu}
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <!--  删除： 根据map删除对象；返回影响的行数-->
+    <delete id="deleteChanpinByMap" parameterType="java.util.Map">
+        delete from chanpin
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="name != null">
+                and name=#{name}
+            </if>
+            <if test="gongyinid != null">
+                and gongyinid=#{gongyinid}
+            </if>
+            <if test="jiage != null">
+                and jiage=#{jiage}
+            </if>
+        </trim>
+    </delete>
+</mapper>
